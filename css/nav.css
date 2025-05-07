@@ -1,0 +1,108 @@
+/* Estilo básico para el navbar */
+#dropdownMenuBtn,
+#dashboardLink,
+#btnLogout {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* --- NAVBAR RESPONSIVE --- */
+/* --- NAVBAR FIJA --- */
+.navbar {
+  position: fixed;
+  /* Hace que la barra se mantenga fija */
+  top: 0;
+  /* Se mantiene en la parte superior */
+  left: 0;
+  /* Ajuste para evitar desplazamientos */
+  width: 100%;
+  /* Ocupa el ancho completo */
+  background-color: #2c2c2cb5;
+  /* Marrón Madera */
+  z-index: 1000;
+  /* Se asegura de que esté sobre otros elementos */
+
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+
+
+  border-bottom: 3px solid #fc7d7d;
+}
+
+a:hover {
+  transition: all .3s ease;
+  font-weight: bold;
+  
+}
+.nav-item{
+  border-top: 1px solid #fc7d7d71;
+  border-bottom: 1px solid #fc7d7d71;
+}
+
+.navbar-brand img {
+  width: 200px;
+  height: auto;
+}
+
+/* --- BOTÓN HAMBURGUESA --- */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  filter: invert(100%);
+}
+
+/* --- MENÚ DE NAVEGACIÓN --- */
+.navbar-nav .nav-link {
+  color: #F8F8F2;
+  /* Blanco Marfil */
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.navbar-nav{
+  gap: 1.5em;
+  margin-left: 3em;
+}
+
+.navbar-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 1.1em;
+}
+
+/* --- MENÚ DE AUTENTICACIÓN --- */
+.auth-menu .btn {
+  background-color: #984d5c;
+  /* Dorado Sutil */
+  color: #F8F8F2;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.auth-menu .btn:hover {
+  background-color: #CC6464;
+}
+
+/* --- MENÚ DESPLEGABLE --- */
+.dropdown-menu {
+  background-color: #694040;
+  /* Fondo menú desplegable */
+}
+
+.dropdown-item {
+  color: #F8F8F2;
+  /* Blanco Marfil */
+}
+
+.dropdown-item:hover {
+  background-color: #CC6464;
+  /* Hover en dropdown */
+}

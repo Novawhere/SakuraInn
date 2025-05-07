@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Cliente</title>
+    <link rel="stylesheet" href="/css/dashboard_admin.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Importar el script de emailjs -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css" rel="stylesheet">
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="/index.html">
+                <img src="/assets/images/logo_text_H_W.png" alt="Logo" width="50" height="50" />
+            </a>
+
+            <!-- Botón hamburguesa -->
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú desplegable -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#header">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resumenGeneral">Resumen</a></li>
+                    
+                    <li class="no_funcional  nav-item"><a class="nav-link" href="#estadoSucursales">Estatus</a></li>
+                   
+                    <li class="nav-item"><a class="nav-link" href="#historialHospedaje">Historial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#checkInOut">Reservas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#administracionUsuarios">Usuarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sistemaResenas">Reseñas</a></li>
+
+                </ul>
+
+                <!-- Menú de autenticación -->
+                <div class="auth-menu d-flex">
+                    <button id="btnLogin" class="btn btn-warning">Iniciar sesión</button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuBtn"
+                            data-bs-toggle="dropdown">Usuario</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#dashboard" id="dashboardLink">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#" id="btnLogout">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="hero-header" id="header">
+
+        <video autoplay muted loop class="video-background">
+            <source src="/assets/videos/users.mp4" type="video/mp4">
+            <!-- Opcional: añadir un fallback con una imagen -->
+            <img src="fallback-image.jpg" alt="Imagen de respaldo">
+        </video>
+        <div class="hero-content">
+            <div class="logo_header">
+                <img src="/assets/images/logo_only_W.png" alt="" width="300" height="300">
+            </div>
+            <div class="texto_titulo">
+                <h1 id="nombreUsuario">Usuario</h1>
+                <h1>Vive una experiencia única</h1>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <main id="dashboardAdmin">
+
+        <!-- 🔷 1. Resumen General -->
+        <section id="resumenGeneral" class="seccion-dashboard">
+            <h3 class="titulo-seccion">Resumen General</h3>
+            <div id="resumenTarjetas" class="contenedor-tarjetas">
+
+                <div id="datosResumen">
+                    
+                    <p class="no_funcional">Total habitaciones disponibles: <span id="totalDisponibles"></span></p>
+                    <p class="no_funcional">Total habitaciones ocupadas: <span id="totalOcupadas"></span></p>
+                    
+                    <p>Reservas activas hoy: <span id="reservasHoy"></span></p>
+                    <p>Ingresos estimados hoy: <span id="ingresosHoy"></span></p>
+                    <p>Reseñas pendientes: <span id="resenasPendientesContador"></span></p>
+                </div>
+                <!-- Tarjetas con métricas clave: reservas del día, habitaciones disponibles, etc. -->
+            </div>
+        </section>
+
+        <!-- 🔷 2. Estado de Habitaciones por Sucursal -->
+        <section id="estadoSucursales" class="seccion-dashboard">
+            <h3 class="titulo-seccion">Estado de Habitaciones por Sucursal</h3>
+            <div id="estadoHabitaciones" class="contenedor-sucursales">
+                <!-- Cada sucursal tendrá un bloque con sus habitaciones -->
+            </div>
+        </section>
+
+        <!-- 🔷 3. Historial de Hospedaje -->
+        <section id="historialHospedaje" class="seccion-dashboard">
+            <h3 class="titulo-seccion">Historial de Hospedaje</h3>
+            <div class="tabla-contenedor">
+                <table class="tabla-hospedaje">
+                    <thead>
+                        <tr>
+                            <th>Nombre del huésped</th>
+                            <th>Habitación</th>
+                            <th>Fecha de Entrada</th>
+                            <th>Fecha de Salida</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaHistorial">
+                        <!-- Datos dinámicos -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 🔷 4. Check-in / Check-out -->
+        <section id="checkInOut" class="seccion-dashboard">
+            <h3 class="titulo-seccion">Check-in / Check-out del Día</h3>
+            <div id="reservasDia" class="lista-reservas">
+                <!-- Las reservas del día aparecerán aquí dinámicamente -->
+            </div>
+        </section>
+
+
+        <!-- 🔷 5. Administración de Usuarios -->
+<section id="administracionUsuarios" class="seccion-dashboard">
+    <h3 class="titulo-seccion">Administración de Usuarios</h3>
+    <div class="tabla-contenedor">
+        <table id="tablaUsuarios">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los usuarios se cargarán dinámicamente aquí -->
+            </tbody>
+        </table>
+    </div>
+    
+
+    <!-- Registro de nuevos admins -->
+    <div class="no_funcional">
+        <form id="formNuevoAdmin" class=" no_funcional formulario-admin">
+            <input type="email" id="emailNuevoAdmin" class="input-admin" placeholder="Correo del nuevo admin" required />
+            <button type="submit" class="btn-admin">Registrar Admin</button>
+        </form>
+    
+        <ul id="listaAdmins" class="no_funcional lista-admins">
+            <!-- Nuevos admins mostrados con botón de eliminación -->
+        </ul>
+    </div>
+
+    <!-- Cambio de rol para usuarios existentes -->
+    <div id="cambioRolUsuario" class="no_funcional bloque-cambio-rol">
+        <h4 class="subtitulo-seccion">Asignar rol de administrador a usuario existente</h4>
+        <form id="formCambioRol" class="formulario-cambio-rol">
+            <input type="email" id="emailUsuarioRol" class="input-admin" placeholder="Correo del usuario" required />
+            <button type="submit" class="btn-admin">Asignar como Admin</button>
+        </form>
+        <p id="mensajeRol" class="mensaje-rol"></p>
+    </div>
+</section>
+
+
+        <!-- 🔷 6. Sistema de Reseñas -->
+        <section id="sistemaResenas" class="seccion-dashboard">
+            <h3 class="titulo-seccion">Sistema de Reseñas</h3>
+            <div id="resenasPendientes" class="contenedor-reseñas"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer id="footer">
+        <div class="footer-container">
+            <!-- Sección de Suscripción -->
+            <div class="footer-section" id="subscribe">
+                <h3>Ofertas exclusivas en tu email</h3>
+                <form id="subscribe-form">
+                    <input type="email" placeholder="Ingresa tu email" required>
+                    <button type="submit">¡Quiero recibirlas!</button>
+                </form>
+                <small>Recibirás emails promocionales de Sakura Inn. Para más información consulta los Avisos de
+                    privacidad.</small>
+            </div>
+
+            <!-- Sección de Contacto -->
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>Teléfono: (55) 1234-5678</li>
+                    <li>Email: info@sakurainn.com</li>
+                    <li>Atención al cliente: Centro de contacto</li>
+                </ul>
+            </div>
+
+            <!-- Sección de Enlaces Rápidos -->
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#faq">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección de Redes Sociales -->
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <ul class="social">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+
+            <!-- Sección de Países -->
+            <div class="footer-section">
+                <h3>Navegar en el sitio de:</h3>
+                <select id="country-selector">
+                    <option>México</option>
+                    <option>Argentina</option>
+                    <option>Colombia</option>
+                    <option>España</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sakura Inn. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/nav.js"></script>
+    <script type="module" src="/js/dashboardAdmin.js"></script>
+
+    <script type="module" src="/js/firebaseConfig.js"></script>
+
+    <script type="module" src="/js/login.js"></script>
+    <script type="" src="/js/bootstrap.bundle.js"></script>
+
+    <script type="text/javascript">
+        // Obtener el nombre del cliente desde el localStorage
+        document.addEventListener("DOMContentLoaded", function () {
+            const usuario = JSON.parse(localStorage.getItem("user"));
+            const nombreClienteElemento = document.getElementById("nombreUsuario");
+
+            if (usuario) {
+                nombreClienteElemento.textContent = `Bienvenido, ${usuario.nombre}`;
+            } else {
+                nombreClienteElemento.textContent = "Bienvenido, cliente desconocido";
+            }
+        });
+
+
+        // Llamar a las funciones que cargan datos
+    </script>
+</body>
+
+
+
+</html>

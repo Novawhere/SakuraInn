@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Permanent+Marker&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+}
+
+/* --- HEADER CON VIDEO --- */
+.hero-header {
+    width: 100%;
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #F8F8F2; /* Blanco Marfil */
+    box-shadow: 0px 0px 10px black;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    font-weight: 100;
+    position: relative;
+    z-index: 1;
+    color: #F8F8F2; /* Blanco Marfil */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+}
+
+/* --- TEXTO DEL HERO --- */
+.hero-content h1 {
+
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffffff; /* Rosa Sakura */
+    
+    text-shadow: 5px 5px 0px  rgb(228, 118, 118);
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+.texto_titulo{
+    margin-top: 5em;
+    background-color: rgba(0, 0, 0, 0.383);
+    width: 100%;
+    border-top:3px solid #ff839b;
+}
+#nombre_hotel_head{
+    font-size: 5em;
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.hero-content .btn {
+    background-color: #D4AF37; /* Dorado Sutil */
+    color: #F8F8F2; /* Blanco Marfil */
+    padding: 12px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background-color: #FFB7C5; /* Rosa Sakura */
+    color: #6C6C6C; /* Gris Oscuro */
+}
+.logo_header img {
+    
+    filter: drop-shadow(4px 4px 8px rgb(0, 0, 0)); /* Sombra suave en el borde */
+}
+body {
+    position: relative;
+    background-image: url('../assets/images/logo_only_B.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-attachment: fixed;
+}
+
+/* Capa translúcida sobre la imagen */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.97); /* Ajusta la opacidad */
+    z-index: -1; /* Mantiene el contenido por encima */
+}
+
+
+
+

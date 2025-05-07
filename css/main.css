@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Permanent+Marker&display=swap');
+
+/* Webfont: KATSUMI-Regular */@font-face {
+    font-family: 'KATSUMI';
+    src: url('/assets/fonts/KATSUMI.eot'); /* IE9 Compat Modes */
+    src: url('/assets/fonts/KATSUMI.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/assets/fonts/KATSUMI.woff') format('woff'), /* Modern Browsers */
+         url('/assets/fonts/KATSUMI.ttf') format('truetype'); /* Safari, Android, iOS */
+             font-style: normal;
+    text-rendering: optimizeLegibility;
+}
+*{
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'KATSUMI';
+    font-weight: 900;
+}
+

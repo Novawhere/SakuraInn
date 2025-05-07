@@ -1,0 +1,108 @@
+/* 🎥 Fondo en video */
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+  }
+  
+  .video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .div-cont{
+    width: 100%;
+  }
+
+  #div-cont2{
+    margin: 0 auto;
+  }
+  
+  /* 📌 Contenedor principal */
+  #loginContainer {
+    padding-top: 8rem; /* Evita que el nav fijo cubra el contenido */
+  }
+  
+  /* 🖼 Estilos de cajas de login y registro */
+  .login-box, .register-box {
+    border: 2px solid #fc7d7d;
+    margin: 0 auto;
+    background: rgba(255, 183, 197, 0.357); /* Fondo translúcido pastel */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    backdrop-filter: blur(8px);
+  }
+  
+  .login-box h2, .register-box h2 {
+    color: #3b3b3b;
+    border-bottom: 2px solid #984d5c;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* 🎯 Campos de entrada */
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #c16376;
+    background-color: #F8F8F2;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8rem;
+  }
+  
+  /* 🎭 Botones */
+  button {
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    text-align: center;
+    border: 2px solid #fc7d7d;
+    width: 100%;
+    padding: 12px;
+    background-color: #9620387f;
+    color: #F8F8F2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #FFB7C5;
+    color: black;
+  }
+  
+  /* 🚀 Botones sociales */
+  .social-login-box {
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+    border: 2px solid #fc7d7d;
+    margin-top: 4em;
+    background: rgba(255, 183, 197, 0.464);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    
+  }
+  
+  .social-login button {
+    text-align: center;
+    border: 2px solid #fc7d7d;
+    margin-top: .5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid #c1637678;
+    padding: 10px;
+  }
+  

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel X – Sakura Inn</title>
+  <!-- Asegúrate de enlazar solamente las hojas de estilo comunes a la vista principal del hotel -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/hotel.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="/index.html">
+        <img src="/assets/images/logo_text_H_W.png" alt="Logo" width="50" height="50" />
+      </a>
+
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú desplegable -->
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#header">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hotelAmenities">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#hotelGallery">Habitaciones</a></li>
+
+          
+          <li class="nav-item"><a class="nav-link" href="#hotelDescription">Sobre nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contactInfo">Contacto</a></li>
+          
+        </ul>
+
+        <!-- Menú de autenticación -->
+        <div class="auth-menu d-flex">
+          <button id="btnLogin" class="btn btn-warning">Iniciar sesión</button>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuBtn"
+              data-bs-toggle="dropdown">Usuario</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#dashboard" id="dashboardLink">Dashboard</a></li>
+              <li><a class="dropdown-item" href="#" id="btnLogout">Cerrar sesión</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="hero-header" id="header">
+
+    <video autoplay muted loop class="video-background">
+      <source src="/assets/videos/hiroshima.mp4" type="video/mp4">
+      <!-- Opcional: añadir un fallback con una imagen -->
+      <img src="fallback-image.jpg" alt="Imagen de respaldo">
+    </video>
+    <div class="hero-content">
+      <div class="logo_header">
+        <img src="/assets/images/logo_only_W.png" alt="" width="300" height="300">
+      </div>
+      <div class="texto_titulo">
+        <h1 id="nombre_hotel_head">Hiroshima</h1>
+      <h1>Vive una experiencia única</h1>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Aquí se incluirían el nav y header ya existentes en el proyecto -->
+
+  <main id="hotelMain">
+    <!-- Sección Hero: Imagen de cabecera del hotel -->
+    <section id="hotelHero">
+      <img id="hotelHeroImg" src="/assets/images/vista_hiroshima.jpg" alt="Vista del hotel">
+      <div id="hotelHeroOverlay">
+        <h1 id="hotelName">Sakura Inn Hiroshima</h1>
+        <p id="hotelTagline">Vive una experiencia única en el corazón de la tradición japonesa</p>
+      </div>
+    </section>
+
+    <!-- Descripción del Hotel -->
+    <section id="hotelDescription">
+      <h2 id="descTitle">Acerca del Hotel</h2>
+      <p id="descText">
+        Nuestro hotel combina elegancia, confort y un toque de tradición para brindarte una estadía inolvidable.
+        Disfruta de instalaciones de primer nivel, gastronomía exquisita y una atención personalizada.
+      </p>
+    </section>
+
+    <!-- Servicios y Amenidades -->
+    <section id="hotelAmenities">
+      <h2 id="amenitiesTitle">Servicios y Amenidades</h2>
+      <ul id="amenitiesList">
+        <li>Recepción 24 horas</li>
+        <li>Restaurante Gourmet</li>
+        <li>Centro de Bienestar</li>
+
+      </ul>
+    </section>
+
+    <!-- Galería de Imágenes -->
+    <section id="hotelGallery">
+      <h2 id="galleryTitle">Habitaciones</h2>
+      <div id="galleryContainer">
+        <div data-title="Sencilla">
+          <img src="/assets/images/sencilla.jpg" alt="Habitación Sencilla">
+        </div>
+        <div data-title="Doble">
+          <img src="/assets/images/doble.jpg" alt="Habitación Doble">
+        </div>
+        <div data-title="Suite">
+          <img src="/assets/images/suite.jpg" alt="Habitación Suite">
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Ubicación (Mapa) -->
+    <section id="hotelLocation">
+      <h2 id="locationTitle">Reseñas de los usuarios</h2>
+      <div id="nombre_hotel_head" style="display:none;">Hotel Ejemplo</div>
+
+      <div id="contenedorResenasHotel"></div>
+
+      <div style="text-align:center; margin-top:10px;">
+        <button id="btnAnterior">⬅ Anterior</button>
+        <button id="btnSiguiente">Siguiente ➡</button>
+      </div>
+
+      </div>
+
+    </section>
+    </section>
+
+    <!-- Sección de reseñas del hotel -->
+
+
+
+    <!-- Contacto y Reservas -->
+    <section id="hotelContact">
+      <h2 id="contactTitle">Contacto y Reservas</h2>
+      <p id="contactInfo">
+        <strong>Teléfono:</strong> (55) 1234-5678<br>
+        <strong>Email:</strong> info@hotelx.com
+      </p>
+      <a id="hotelContactButton" href="/views/dashboardCliente.html" type="button">Reservar Ahora</a>
+    </section>
+  </main>
+
+  <!-- Aquí se incluiría el footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <!-- Sección de Suscripción -->
+      <div class="footer-section" id="subscribe">
+        <h3>Ofertas exclusivas en tu email</h3>
+        <form id="subscribe-form">
+          <input type="email" placeholder="Ingresa tu email" required>
+          <button type="submit">¡Quiero recibirlas!</button>
+        </form>
+        <small>Recibirás emails promocionales de Sakura Inn. Para más información consulta los Avisos de
+          privacidad.</small>
+      </div>
+
+      <!-- Sección de Contacto -->
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <ul>
+          <li>Teléfono: (55) 1234-5678</li>
+          <li>Email: info@sakurainn.com</li>
+          <li>Atención al cliente: Centro de contacto</li>
+        </ul>
+      </div>
+
+      <!-- Sección de Enlaces Rápidos -->
+      <div class="footer-section">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#about">Sobre Nosotros</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </div>
+
+      <!-- Sección de Redes Sociales -->
+      <div class="footer-section">
+        <h3>Síguenos</h3>
+        <ul class="social">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+
+      <!-- Sección de Países -->
+      <div class="footer-section">
+        <h3>Navegar en el sitio de:</h3>
+        <select id="country-selector">
+          <option>México</option>
+          <option>Argentina</option>
+          <option>Colombia</option>
+          <option>España</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sakura Inn. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <!-- Scripts necesarios -->
+
+</body>
+<script type="module" src="/js/hotel .js"></script>
+<script type="module" src="/js/firebaseConfig.js"></script>
+<script type="module" src="/js/login.js"></script>
+<script type="module" src="/js/nav.js"></script>
+<script type="" src="/js/bootstrap.bundle.js"></script>
+
+</html>

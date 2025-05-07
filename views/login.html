@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Sakura Inn</title>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@7/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@7/dist/ionicons/ionicons.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="/css/nav.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/logo_text_H_W.png" alt="Logo" width="50" height="50" />
+      </a>
+
+    </div>
+  </nav>
+
+   <!-- Video de fondo -->
+   <div class="video-container">
+    <video autoplay muted loop class="video-background">
+      <source src="/assets/videos/sakura_video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <main id="loginContainer" class="container d-flex flex-column align-items-center">
+    <div  class="div-cont row justify-content-center">
+      <!-- Panel de Login -->
+      <div class="col-md-6 col-lg-4">
+        <div    class="div-cont login-box" id="loginPanel">
+          <h2>Iniciar sesión</h2>
+          <div id="loginBox">
+            <input type="email" id="loginEmail" placeholder="Correo" required>
+            <input type="password" id="loginPass" placeholder="Contraseña" required>
+            <button id="btnLogin">Entrar</button>
+
+          </div>
+          
+          <p class="toggle-panel">¿No tienes cuenta? <button id="showRegister">Regístrate</button></p>
+        </div>
+
+        <!-- Panel de Registro -->
+        <div class="register-box div-cont" id="registerPanel" style="display: none;">
+          <h2>Registrarse</h2>
+          <form id="registerForm">
+            <input type="text" id="registerName" placeholder="Nombre" required>
+            <input type="email" id="registerEmail" placeholder="Correo" required>
+            <small class="error-message" id="emailError"></small>
+
+            <input type="password" id="registerPass" placeholder="Contraseña" required>
+            <small class="error-message" id="passError"></small>
+
+            <button id="btnRegister">Registrar</button>
+          </form>
+          <p class="toggle-panel">¿Ya tienes cuenta? <button id="showLogin">Inicia sesión</button></p>
+        </div>
+      </div>
+      
+      <!-- Panel de Login con Servicios -->
+      <div class="col-md-6 col-lg-4">
+        <div class="social-login-box">
+          <h2>O entra con:</h2>
+          <div class="social-login">
+            <button id="btnGoogle"><ion-icon name="logo-google"></ion-icon> Google</button>
+            <button id="btnGitHub"><ion-icon name="logo-github"></ion-icon> GitHub</button>
+            <button id="btnFacebook"><ion-icon name="logo-facebook"></ion-icon> Facebook</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-container">
+      <!-- Sección de Suscripción -->
+      <div class="footer-section" id="subscribe">
+        <h3>Ofertas exclusivas en tu email</h3>
+        <form id="subscribe-form">
+          <input type="email" placeholder="Ingresa tu email" required>
+          <button type="submit">¡Quiero recibirlas!</button>
+        </form>
+        <small>Recibirás emails promocionales de Sakura Inn. Para más información consulta los Avisos de privacidad.</small>
+      </div>
+  
+      <!-- Sección de Contacto -->
+      <div class="footer-section">
+        <h3>Contacto</h3>
+        <ul>
+          <li>Teléfono: (55) 1234-5678</li>
+          <li>Email: info@sakurainn.com</li>
+          <li>Atención al cliente: Centro de contacto</li>
+        </ul>
+      </div>
+  
+      <!-- Sección de Enlaces Rápidos -->
+      <div class="footer-section">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#about">Sobre Nosotros</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+        </ul>
+      </div>
+  
+      <!-- Sección de Redes Sociales -->
+      <div class="footer-section">
+        <h3>Síguenos</h3>
+        <ul class="social">
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+  
+      <!-- Sección de Países -->
+      <div class="footer-section">
+        <h3>Navegar en el sitio de:</h3>
+        <select id="country-selector">
+          <option>México</option>
+          <option>Argentina</option>
+          <option>Colombia</option>
+          <option>España</option>
+        </select>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sakura Inn. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script para cambiar entre Login y Registro -->
+  <script type="module" src="/js/login.js"></script>
+  
+  
+</body>
+</html>
