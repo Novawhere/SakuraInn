@@ -5,13 +5,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.0/firebase
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAHp5nkTByEJyoeYeiG_nJ4B3B0zU7tObg",
-  authDomain: "formulario-9187b.firebaseapp.com",
-  projectId: "formulario-9187b",
-  storageBucket: "formulario-9187b.firebasestorage.app",
-  messagingSenderId: "371979718033",
-  appId: "1:371979718033:web:28071deef1c488fb825e30",
-  measurementId: "G-6J8PGE2D60",
+  apiKey: "your_api_key",
+  authDomain: "your_project_id.firebaseapp.com",
+  projectId: "your_project_id",
+  storageBucket: "your_project_id.appspot.com",
+  messagingSenderId: "your_messaging_sender_id",
+  appId: "your_app_id",
+  measurementId: "your_measurement_id"
 };
 
 // Initialize Firebase
