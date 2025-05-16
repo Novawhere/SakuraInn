@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebas
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
-// Firebase configuration
+// Firebase configuration, esta parte se edito para su visualizacion publica y revision de codigo 
+//para adaptar este proyecto coloque sus credencianles de firebase
 const firebaseConfig = {
   apiKey: "your_api_key",
   authDomain: "your_project_id.firebaseapp.com",
