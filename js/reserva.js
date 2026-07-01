@@ -277,7 +277,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const user = auth.currentUser;
             const usuarioId = user.uid;
     
-            const usuarioSnap = await getDoc(doc(db, "Usuarios", usuarioId));
+            const usuarioSnap = await getDoc(doc(db, "usuarios", usuarioId));
             const nombreUsuario = usuarioSnap.exists() ? usuarioSnap.data().nombre : "Usuario desconocido";
     
             // Crear documento de reseña con estado pendiente
