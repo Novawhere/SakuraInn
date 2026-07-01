@@ -50,7 +50,7 @@
   }
   
   /* 🎯 Campos de entrada */
-  input {
+  .login-box input, .register-box input {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
@@ -65,7 +65,7 @@
   }
   
   /* 🎭 Botones */
-  button {
+  .login-box button, .register-box button {
     box-shadow: 0 2px 15px rgba(0,0,0,0.2);
     text-align: center;
     border: 2px solid #fc7d7d;
@@ -78,7 +78,7 @@
     cursor: pointer;
   }
   
-  button:hover {
+  .login-box button:hover, .register-box button:hover {
     background-color: #FFB7C5;
     color: black;
   }

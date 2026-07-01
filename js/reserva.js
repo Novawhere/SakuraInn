@@ -337,43 +337,9 @@ async function actualizarEstadoReserva(idReserva, nuevosCampos) {
 }
 
 
-// Llamada al cargar la página
-window.addEventListener("DOMContentLoaded", () => {
-    cargarReservasUsuario();
-});
 
 formReserva.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    document.getElementById("formReseña").addEventListener("submit", async (e) => {
-        e.preventDefault();
-    
-        const reseña = document.getElementById("reseña").value;
-        const puntuacion = document.getElementById("puntuacion").value;
-    
-        if (!reseña || !puntuacion) {
-            alert("Por favor, llena todos los campos.");
-            return;
-        }
-    
-        // Guardar la reseña en Firestore
-        const reservaRef = doc(db, "Reservas", window.reservaIdParaReseña);
-        await updateDoc(reservaRef, {
-            reseña: reseña,
-            puntuacion: puntuacion,
-            estado: "reseñada"
-        });
-    
-        // Cerrar el modal
-        const modal = document.getElementById("modalReseña");
-        modal.style.display = "none";
-    
-        alert("Gracias por dejar tu reseña!");
-    
-        // Recargar las reservas para mostrar los cambios
-        cargarReservasUsuario();
-    });
-    
 
     const habitacionId = habitacionSelect.value;
     const entrada = document.getElementById("entrada").value;
@@ -443,9 +409,4 @@ formReserva.addEventListener("submit", async (e) => {
     } else {
         confirmationMessage.textContent = "La habitación no está disponible para las fechas seleccionadas.";
     }
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-    cargarSucursales();
-    cargarReservasUsuario();
 });

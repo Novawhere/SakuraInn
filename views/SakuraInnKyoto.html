@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sakura Inn - Sistema de reservas de hoteles con tematica japonesa. Reserva en Tokyo, Kyoto, Osaka, Sapporo e Hiroshima.">
+    <link rel="icon" type="image/png" href="/assets/images/logo_only_B.png">
   <title>Hotel X – Sakura Inn</title>
   <!-- Asegúrate de enlazar solamente las hojas de estilo comunes a la vista principal del hotel -->
   <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -20,7 +22,7 @@
     <div class="container-fluid">
       <!-- Logo -->
       <a class="navbar-brand" href="/index.html">
-        <img src="/assets/images/logo_text_H_W.png" alt="Logo" width="50" height="50" />
+        <img src="/assets/images/logo_text_H_W.png" alt="Logo" width="50" height="50" / >
       </a>
 
       <!-- Botón hamburguesa -->
@@ -63,11 +65,11 @@
     <video autoplay muted loop class="video-background">
       <source src="/assets/videos/kyoto.mp4" type="video/mp4">
       <!-- Opcional: añadir un fallback con una imagen -->
-      <img src="fallback-image.jpg" alt="Imagen de respaldo">
+      <img src="fallback-image.jpg" alt="Imagen de respaldo" loading="lazy">
     </video>
     <div class="hero-content">
       <div class="logo_header">
-        <img src="/assets/images/logo_only_W.png" alt="" width="300" height="300">
+        <img src="/assets/images/logo_only_W.png" alt="" width="300" height="300" >
       </div>
       <div class="texto_titulo">
         <h1 id="nombre_hotel_head">Kyoto</h1>
@@ -82,7 +84,7 @@
   <main id="hotelMain">
     <!-- Sección Hero: Imagen de cabecera del hotel -->
     <section id="hotelHero">
-      <img id="hotelHeroImg" src="/assets/images/vista kyoto.jpg" alt="Vista del hotel">
+      <img id="hotelHeroImg" src="/assets/images/vista_kyoto.jpg" alt="Vista del hotel" loading="lazy">
       <div id="hotelHeroOverlay">
         <h1 id="hotelName">Sakura Inn Kyoto</h1>
         <p id="hotelTagline">Vive una experiencia única en el corazón de la tradición japonesa</p>
@@ -114,13 +116,13 @@
       <h2 id="galleryTitle">Habitaciones</h2>
       <div id="galleryContainer">
         <div data-title="Sencilla">
-          <img src="/assets/images/sencilla.jpg" alt="Habitación Sencilla">
+          <img src="/assets/images/sencilla.jpg" alt="Habitación Sencilla" loading="lazy">
         </div>
         <div data-title="Doble">
-          <img src="/assets/images/doble.jpg" alt="Habitación Doble">
+          <img src="/assets/images/doble.jpg" alt="Habitación Doble" loading="lazy">
         </div>
         <div data-title="Suite">
-          <img src="/assets/images/suite.jpg" alt="Habitación Suite">
+          <img src="/assets/images/suite.jpg" alt="Habitación Suite" loading="lazy">
         </div>
       </div>
     </section>
@@ -129,7 +131,7 @@
     <!-- Ubicación (Mapa) -->
     <section id="hotelLocation">
       <h2 id="locationTitle">Reseñas de los usuarios</h2>
-      <div id="nombre_hotel_head" style="display:none;">Hotel Ejemplo</div>
+      <div id="nombre_hotel_hidden" style="display:none;">Hotel Ejemplo</div>
 
       <div id="contenedorResenasHotel"></div>
 
@@ -186,7 +188,7 @@
       <div class="footer-section">
         <h3>Enlaces Rápidos</h3>
         <ul>
-          <li><a href="#home">Inicio</a></li>
+          <li><a href="#header">Inicio</a></li>
           <li><a href="#services">Servicios</a></li>
           <li><a href="#about">Sobre Nosotros</a></li>
           <li><a href="#faq">Preguntas Frecuentes</a></li>
@@ -217,16 +219,16 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Sakura Inn. Todos los derechos reservados.</p>
+      <p>&copy; 2026 Sakura Inn. Todos los derechos reservados.</p>
     </div>
   </footer>
-  <!-- Scripts necesarios -->
+
+  <script type="module" src="/js/hotel.js"></script>
+  <script type="module" src="/js/firebaseConfig.js"></script>
+  <script type="module" src="/js/login.js"></script>
+  <script type="module" src="/js/nav.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
 
 </body>
-<script type="module" src="/js/hotel .js"></script>
-<script type="module" src="/js/firebaseConfig.js"></script>
-<script type="module" src="/js/login.js"></script>
-<script type="module" src="/js/nav.js"></script>
-<script type="" src="/js/bootstrap.bundle.js"></script>
 
 </html>

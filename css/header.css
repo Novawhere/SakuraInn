@@ -61,6 +61,14 @@
     font-size: 5em;
 }
 
+.hero-subtitle {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 0.5em;
+}
+
 /* --- BOTÓN PRINCIPAL --- */
 .hero-content .btn {
     background-color: #D4AF37; /* Dorado Sutil */

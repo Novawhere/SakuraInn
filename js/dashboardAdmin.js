@@ -1,7 +1,11 @@
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  doc,
+  updateDoc,
+  deleteDoc,
+  setDoc
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 import {
   getAuth,
@@ -308,13 +312,6 @@ document.getElementById("reservasDia").addEventListener("click", (e) => {
   }
   
 });
-
-import {
-  doc,
-  updateDoc,
-  deleteDoc,
-  setDoc
-} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 
 async function confirmarCheckIn(nombreCliente) {

@@ -11,10 +11,10 @@ if (userCache) {
   console.log('Usuario desde cache:', userCache);
 
   // Ocultar botón de login, mostrar menú de usuario
-  btnLogin.style.display = 'none';
-  dropdownMenuBtn.style.display = 'block';
-  dashboardLink.style.display = 'block'; 
-  btnLogout.style.display = 'block';
+  btnLogin?.style.display = 'none';
+  dropdownMenuBtn?.style.display = 'block';
+  dashboardLink?.style.display = 'block'; 
+  btnLogout?.style.display = 'block';
 
   // Mostrar nombre en el botón del dropdown
   dropdownMenuBtn.textContent = userCache.nombre || 'Usuario';

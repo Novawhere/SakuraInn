@@ -149,7 +149,7 @@
         }
 
         /* Estilo base para el botón */
-#ver_mas {
+.btn-ver-mas {
     text-decoration: none;
     display: inline-block;
     padding: 12px 24px;
@@ -164,7 +164,7 @@
   }
   
   /* Efecto hover para el botón */
-  #ver_mas:hover {
+  .btn-ver-mas:hover {
     background-color: #CC6464; /* Color al pasar el mouse - puedes ajustar según tu paleta */
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);

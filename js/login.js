@@ -1,4 +1,4 @@
-import { auth } from '/js/firebaseConfig.js';
+import { auth, db } from '/js/firebaseConfig.js';
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,6 +9,7 @@ import {
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 import {
   registrarUsuarioEnBD,
@@ -39,8 +40,6 @@ const showLoginBtn = document.getElementById("showLogin");
 
 // 🔹 Guardar sesión
 function guardarSesion(user) {
-  localStorage.setItem('userEmail', user.email || '');
-  localStorage.setItem('userUID', user.uid || '');
   sessionStorage.setItem('hasRedirected', 'true');
 }
 

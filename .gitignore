@@ -1,0 +1,35 @@
+# System files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Imágenes de respaldo grandes
+views/fallback-image.jpg
+
+# Documentos binarios
+DOC/
+
+# Source maps
+*.map
+
+# Markdown files privados
+AGENTS.md
+context.md
+
+# AI agent files (privados, no subir a git)
+AGENTS.md
+opencode.json
+context.md
+.opencode/
+.agents/
+spec/
