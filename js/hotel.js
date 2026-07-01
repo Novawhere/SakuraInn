@@ -52,6 +52,7 @@ async function cargarResenasHotel() {
   }
 
   const contenedor = document.getElementById("contenedorResenasHotel");
+  if (!contenedor) return;
   contenedor.innerHTML = "<p>Cargando reseñas...</p>";
 
   try {
@@ -65,7 +66,7 @@ async function cargarResenasHotel() {
       const estado = data.estado?.toLowerCase();
       const sucursal = data.nombreSucursal?.toLowerCase();
 
-      if (estado === "aprobada" && sucursal.includes(nombreHotel.toLowerCase())) {
+      if (estado === "aprobada" && sucursal && sucursal.includes(nombreHotel.toLowerCase())) {
         reseñasHotel.push(data);
       }
     });
@@ -75,8 +76,8 @@ async function cargarResenasHotel() {
     mostrarResenas();
 
   } catch (error) {
-    contenedor.innerHTML = "<p>Error al cargar reseñas. Inténtalo más tarde.</p>";
-    console.error("Error al obtener reseñas:", error);
+    console.error("Error al obtener reseñas:", error.code, error.message);
+    contenedor.innerHTML = `<p>No se pudieron cargar las reseñas. Verifica las reglas de Firestore.</p>`;
   }
 }
 

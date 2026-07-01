@@ -1,4 +1,8 @@
-import { limpiarSesion } from './authHelpers.js';
+// Función inline - no depende de Firebase
+function limpiarSesion() {
+  localStorage.removeItem('user');
+  sessionStorage.removeItem('hasRedirected');
+}
 
 const btnLogin = document.getElementById('btnLogin');
 const dropdownMenuBtn = document.getElementById('dropdownMenuBtn');
