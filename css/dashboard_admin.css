@@ -23,12 +23,6 @@
     backdrop-filter: blur(8px);
 }
 
-#estadoSucursales,
-.no_funcional
-{
-    display: none;
-}
-
 /* 🔷 Títulos */
 .titulo-seccion {
     font-size: 1.8rem;

@@ -46,7 +46,7 @@
                     <li class="nav-item"><a class="nav-link" href="#header">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#resumenGeneral">Resumen</a></li>
                     
-                    <li class="no_funcional  nav-item"><a class="nav-link" href="#estadoSucursales">Estatus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#estadoSucursales">Estatus</a></li>
                    
                     <li class="nav-item"><a class="nav-link" href="#historialHospedaje">Historial</a></li>
                     <li class="nav-item"><a class="nav-link" href="#checkInOut">Reservas</a></li>
@@ -102,8 +102,8 @@
 
                 <div id="datosResumen">
                     
-                    <p class="no_funcional">Total habitaciones disponibles: <span id="totalDisponibles"></span></p>
-                    <p class="no_funcional">Total habitaciones ocupadas: <span id="totalOcupadas"></span></p>
+                    <p>Total habitaciones disponibles: <span id="totalDisponibles"></span></p>
+                    <p>Total habitaciones ocupadas: <span id="totalOcupadas"></span></p>
                     
                     <p>Reservas activas hoy: <span id="reservasHoy"></span></p>
                     <p>Ingresos estimados hoy: <span id="ingresosHoy"></span></p>
@@ -130,6 +130,7 @@
                         <tr>
                             <th>Nombre del huésped</th>
                             <th>Habitación</th>
+                            <th>Sucursal</th>
                             <th>Fecha de Entrada</th>
                             <th>Fecha de Salida</th>
                         </tr>
@@ -167,29 +168,6 @@
                 <!-- Los usuarios se cargarán dinámicamente aquí -->
             </tbody>
         </table>
-    </div>
-    
-
-    <!-- Registro de nuevos admins -->
-    <div class="no_funcional">
-        <form id="formNuevoAdmin" class=" no_funcional formulario-admin">
-            <input type="email" id="emailNuevoAdmin" class="input-admin" placeholder="Correo del nuevo admin" required />
-            <button type="submit" class="btn-admin">Registrar Admin</button>
-        </form>
-    
-        <ul id="listaAdmins" class="no_funcional lista-admins">
-            <!-- Nuevos admins mostrados con botón de eliminación -->
-        </ul>
-    </div>
-
-    <!-- Cambio de rol para usuarios existentes -->
-    <div id="cambioRolUsuario" class="no_funcional bloque-cambio-rol">
-        <h4 class="subtitulo-seccion">Asignar rol de administrador a usuario existente</h4>
-        <form id="formCambioRol" class="formulario-cambio-rol">
-            <input type="email" id="emailUsuarioRol" class="input-admin" placeholder="Correo del usuario" required />
-            <button type="submit" class="btn-admin">Asignar como Admin</button>
-        </form>
-        <p id="mensajeRol" class="mensaje-rol"></p>
     </div>
 </section>
 
@@ -268,29 +246,8 @@
 
     <script type="text/javascript" src="../js/toast.js"></script>
     <script type="text/javascript" src="../js/nav.js?v=4"></script>
-    <script type="module" src="../js/dashboardAdmin.js"></script>
-
-    <script type="module" src="../js/firebaseConfig.js"></script>
-
-    <script type="module" src="../js/login.js"></script>
     <script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript">
-        // Obtener el nombre del cliente desde el localStorage
-        document.addEventListener("DOMContentLoaded", function () {
-            const usuario = JSON.parse(localStorage.getItem("user"));
-            const nombreClienteElemento = document.getElementById("nombreUsuario");
-
-            if (usuario) {
-                nombreClienteElemento.textContent = `Bienvenido, ${usuario.nombre}`;
-            } else {
-                nombreClienteElemento.textContent = "Bienvenido, cliente desconocido";
-            }
-        });
-
-
-        // Llamar a las funciones que cargan datos
-    </script>
+    <script type="module" src="../js/dashboardAdmin.js"></script>
 </body>
 
 
