@@ -39,7 +39,7 @@ function mostrarCalendario(eventos) {
             right: 'dayGridMonth'
         },
         dateClick: function(info) {
-            alert(`Día seleccionado: ${info.dateStr}`);
+            showToast(`Día seleccionado: ${info.dateStr}`, 'info', 2000);
         }
     });
 
@@ -132,7 +132,7 @@ async function cancelarReserva(idReserva) {
     const confirmacion = confirm("¿Estás seguro de que deseas cancelar esta reserva?");
     if (!confirmacion) return;
     await deleteDoc(doc(db, "Reservas", idReserva));
-    alert("Reserva cancelada.");
+    showToast("Reserva cancelada.", 'success');
     cargarReservasUsuario();
 }
 
@@ -218,7 +218,7 @@ if (!tbody.dataset.listenerAttached) {
                     checkInConfirmado: false,
                     estado: "check in pendiente"
                 });
-                alert("Check-in pendiente, espera a que el administrador lo confirme.");
+                showToast("Check-in pendiente, espera a que el administrador lo confirme.", 'info');
                 cargarReservasUsuario();
             }
         } else if (e.target.classList.contains("checkOutBtn")) {
@@ -228,7 +228,7 @@ if (!tbody.dataset.listenerAttached) {
                     checkOutConfirmado: false,
                     estado: "check out pendiente"
                 });
-                alert("Check-out pendiente de confirmación del administrador.");
+                showToast("Check-out pendiente de confirmación del administrador.", 'info');
                 cargarReservasUsuario();
             }
         }
@@ -249,7 +249,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const puntuacion = document.getElementById("puntuacion").value;
     
         if (!reseña || !puntuacion) {
-            alert("Por favor, llena todos los campos.");
+            showToast("Por favor, llena todos los campos.", 'warning');
             return;
         }
     
@@ -259,7 +259,7 @@ window.addEventListener("DOMContentLoaded", () => {
             const reservaSnap = await getDoc(reservaRef);
     
             if (!reservaSnap.exists()) {
-                alert("La reserva no existe.");
+                showToast("La reserva no existe.", 'error');
                 return;
             }
     
@@ -296,13 +296,13 @@ window.addEventListener("DOMContentLoaded", () => {
                 estado: "pendiente"  // Estado asignado como pendiente
             });
     
-            alert("Gracias por tu reseña.");
+            showToast("Gracias por tu reseña.", 'success');
             document.getElementById("modalReseña").style.display = "none";
             cargarReservasUsuario();
     
         } catch (error) {
             console.error("Error al guardar la reseña:", error);
-            alert("Error al guardar la reseña.");
+            showToast("Error al guardar la reseña.", 'error');
         }
     });
     

@@ -1,0 +1,120 @@
+/* Sakura Toast Notification System */
+.sakura-toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.sakura-toast {
+  background: rgba(44, 44, 44, 0.95);
+  color: #F8F8F2;
+  border-left: 4px solid #64b5f6;
+  border-radius: 8px;
+  padding: 14px 20px;
+  min-width: 280px;
+  max-width: 380px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+  animation: toastSlideIn 0.3s ease-out;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sakura-toast.removing {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.sakura-toast .toast-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.sakura-toast .toast-message {
+  flex: 1;
+}
+
+.sakura-toast .toast-close {
+  background: none;
+  border: none;
+  color: #F8F8F2;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  padding: 0 0 0 8px;
+}
+
+.sakura-toast .toast-close:hover {
+  opacity: 1;
+}
+
+/* Tipos de notificación */
+.sakura-toast.success {
+  border-left-color: #5bba6f;
+}
+
+.sakura-toast.success .toast-icon::before {
+  content: "✓";
+}
+
+.sakura-toast.error {
+  border-left-color: #f44336;
+}
+
+.sakura-toast.error .toast-icon::before {
+  content: "✕";
+}
+
+.sakura-toast.info {
+  border-left-color: #64b5f6;
+}
+
+.sakura-toast.info .toast-icon::before {
+  content: "i";
+}
+
+.sakura-toast.warning {
+  border-left-color: #ffc107;
+}
+
+.sakura-toast.warning .toast-icon::before {
+  content: "!";
+}
+
+/* Animación de entrada */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .sakura-toast-container {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+  }
+
+  .sakura-toast {
+    min-width: auto;
+    max-width: none;
+  }
+}

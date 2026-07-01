@@ -90,19 +90,47 @@ main {
     background-color: #f0f0f0;
   }
   
-  /* Botones dentro de la tabla (por ejemplo, para confirmar o cancelar reservas) */
+  /* Botones dentro de la tabla */
   #reservasTabla td button {
     padding: 8px 16px;
-    background-color: #f44336;
     color: #F8F8F2;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 0.85rem;
   }
-  
-  #reservasTabla td button:hover {
+
+  #reservasTabla td button.checkInBtn {
+    background-color: #5bba6f;
+  }
+
+  #reservasTabla td button.checkInBtn:hover {
+    background-color: #4a9d5c;
+  }
+
+  #reservasTabla td button.checkOutBtn {
+    background-color: #f47c7c;
+  }
+
+  #reservasTabla td button.checkOutBtn:hover {
+    background-color: #e56b6b;
+  }
+
+  #reservasTabla td button.cancelarReservaBtn {
+    background-color: #f44336;
+  }
+
+  #reservasTabla td button.cancelarReservaBtn:hover {
     background-color: #e53935;
+  }
+
+  #reservasTabla td button.reseñarBtn {
+    background-color: #64b5f6;
+  }
+
+  #reservasTabla td button.reseñarBtn:hover {
+    background-color: #42a5f5;
   }
   
   /*------------------------------------------------

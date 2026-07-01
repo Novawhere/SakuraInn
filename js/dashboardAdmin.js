@@ -237,12 +237,12 @@ document.getElementById("resenasPendientes").addEventListener("click", async (e)
       estado: "aprobada",
       respuestaAdmin: respuestaTexto
     });
-    alert("✅ Reseña aprobada con respuesta guardada.");
+    showToast("Reseña aprobada con respuesta guardada.", 'success');
   }
 
   if (e.target.classList.contains("btn-rechazar")) {
     await deleteDoc(reseñaRef);
-    alert("🗑️ Reseña eliminada.");
+    showToast("Reseña eliminada.", 'success');
   }
 
   await cargarResenasPendientes();
@@ -322,13 +322,13 @@ async function confirmarCheckIn(nombreCliente) {
     const reservaDoc = doc(db, "Reservas", reserva.id);
     await updateDoc(reservaDoc, { 
       estado: "en estadia", 
-      checkInConfirmado: true // Cambiamos el estado del check-in a confirmado
+      checkInConfirmado: true
     });
 
-    alert(`✅ Check-in confirmado para ${nombreCliente}`);
-await cargarReservasPendientes();
-await cargarEstadoHabitaciones();
-await cargarResumenGeneral();
+    showToast(`Check-in confirmado para ${nombreCliente}`, 'success');
+    await cargarReservasPendientes();
+    await cargarEstadoHabitaciones();
+    await cargarResumenGeneral();
 
   }
 }
@@ -356,13 +356,12 @@ async function confirmarCheckOut(nombreCliente) {
     // 2. Actualizar estado a "finalizada" y confirmar check-out
     await updateDoc(reservaDoc, { 
       estado: "finalizada", 
-      checkOutConfirmado: true // Cambiar estado del check-out a confirmado
+      checkOutConfirmado: true
     });
 
-    // 3. Eliminar la reserva original
     await deleteDoc(reservaDoc);
 
-    alert(`✅ Check-out confirmado para ${nombreCliente}`);
+    showToast(`Check-out confirmado para ${nombreCliente}`, 'success');
     cargarReservasPendientes();
   }
 }
@@ -405,18 +404,18 @@ async function cargarUsuarios() {
 // Cambiar rol (cliente ↔ admin)
 async function cambiarRolUsuario(id, rolActual) {
   const nuevoRol = rolActual === "admin" ? "cliente" : "admin";
-  await updateDoc(doc(db, "usuarios", id), { rol: nuevoRol }); // Ajustado a "usuarios"
-  alert(`Rol actualizado a ${nuevoRol}`);
-  cargarUsuarios(); // Recarga tabla
+  await updateDoc(doc(db, "usuarios", id), { rol: nuevoRol });
+  showToast(`Rol actualizado a ${nuevoRol}`, 'success');
+  cargarUsuarios();
 }
 
 // Eliminar usuario
 async function eliminarUsuario(id) {
   const confirmar = confirm("¿Estás seguro de eliminar este usuario?");
   if (!confirmar) return;
-  await deleteDoc(doc(db, "usuarios", id)); // Ajustado a "usuarios"
-  alert("Usuario eliminado.");
-  cargarUsuarios(); // Recarga tabla
+  await deleteDoc(doc(db, "usuarios", id));
+  showToast("Usuario eliminado.", 'success');
+  cargarUsuarios();
 }
 
 // Llamar función al cargar

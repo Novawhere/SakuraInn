@@ -50,8 +50,8 @@ onAuthStateChanged(auth, async (user) => {
     if (!redirected) {
       guardarSesion(user);
       await registrarUsuarioEnBD(user, nameRegister?.value);
-      alert(`Bienvenido, ${user.displayName || user.email}`);
-      window.location.href = "../index.html";
+      showToast(`Bienvenido, ${user.displayName || user.email}`, 'success');
+      setTimeout(() => window.location.href = "../index.html", 1500);
     }
   } else {
     limpiarSesion();
@@ -66,7 +66,7 @@ btnRegister?.addEventListener("click", async (e) => {
   let valid = true;
 
   if (!nameRegister.value.trim() || !emailRegister.value.trim() || !passRegister.value.trim()) {
-    alert("Por favor, completa todos los campos del registro.");
+    showToast("Por favor, completa todos los campos del registro.", 'warning');
     return;
   }
 
@@ -90,10 +90,10 @@ btnRegister?.addEventListener("click", async (e) => {
       const cred = await createUserWithEmailAndPassword(auth, emailRegister.value, passRegister.value);
       guardarSesion(cred.user);
       await registrarUsuarioEnBD(cred.user, nameRegister.value);
-      alert("¡Registro exitoso!");
-      window.location.href = "../index.html";
+      showToast("¡Registro exitoso!", 'success');
+      setTimeout(() => window.location.href = "../index.html", 1500);
     } catch (error) {
-      alert("Error al registrar: " + error.message);
+      showToast("Error al registrar: " + error.message, 'error');
     }
   }
 });
@@ -103,7 +103,7 @@ btnLogin?.addEventListener("click", async (e) => {
   e.preventDefault();
 
   if (!emailLogin.value.trim() || !passLogin.value.trim()) {
-    alert("Por favor, ingresa tu correo y contraseña.");
+    showToast("Por favor, ingresa tu correo y contraseña.", 'warning');
     return;
   }
 
@@ -130,15 +130,15 @@ btnLogin?.addEventListener("click", async (e) => {
         nombre: datosUsuario.nombre
       }));
 
-      alert(`Bienvenido, ${datosUsuario.nombre}`);
+      showToast(`Bienvenido, ${datosUsuario.nombre}`, 'success');
       sessionStorage.setItem('hasRedirected', 'true');
-      window.location.href = "../index.html";
+      setTimeout(() => window.location.href = "../index.html", 1500);
     } else {
-      alert("No se encontró el usuario en la base de datos.");
+      showToast("No se encontró el usuario en la base de datos.", 'error');
     }
   } catch (error) {
     console.error("Error en Firebase:", error.code, error.message);
-    alert("Error al iniciar sesión: " + error.message);
+    showToast("Error al iniciar sesión: " + error.message, 'error');
   }
 });
 
@@ -148,10 +148,10 @@ const loginConProveedor = async (provider) => {
     const result = await signInWithPopup(auth, provider);
     guardarSesion(result.user);
     await registrarUsuarioEnBD(result.user);
-    alert("¡Bienvenido!");
-    window.location.href = "../index.html";
+    showToast("¡Bienvenido!", 'success');
+    setTimeout(() => window.location.href = "../index.html", 1500);
   } catch (error) {
-    alert("Error de autenticación: " + error.message);
+    showToast("Error de autenticación: " + error.message, 'error');
   }
 };
 
@@ -164,8 +164,8 @@ btnLogout?.addEventListener("click", async () => {
   try {
     await signOut(auth);
     limpiarSesion();
-    alert("Sesión cerrada");
-    window.location.href = "../index.html";
+    showToast("Sesión cerrada", 'info');
+    setTimeout(() => window.location.href = "../index.html", 1000);
   } catch (error) {
     console.error("Error al cerrar sesión: ", error.message);
   }
