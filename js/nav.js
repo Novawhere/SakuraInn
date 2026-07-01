@@ -14,22 +14,25 @@ const isInViews = window.location.pathname.includes('/views/');
 const viewsPath = isInViews ? './' : './views/';
 const rootPath = isInViews ? '../' : './';
 
-const userCache = JSON.parse(localStorage.getItem('user'));
+let userCache = null;
+try {
+  userCache = JSON.parse(localStorage.getItem('user'));
+} catch (e) {
+  localStorage.removeItem('user');
+  userCache = null;
+}
 
 if (userCache) {
   console.log('Usuario desde cache:', userCache);
 
-  // Ocultar botón de login, mostrar menú de usuario
   btnLogin?.style.display = 'none';
   dropdownMenuBtn?.style.display = 'block';
-  dashboardLink?.style.display = 'block'; 
+  dashboardLink?.style.display = 'block';
   btnLogout?.style.display = 'block';
 
-  // Mostrar nombre en el botón del dropdown
-  dropdownMenuBtn.textContent = userCache.nombre || 'Usuario';
+  if (dropdownMenuBtn) dropdownMenuBtn.textContent = userCache.nombre || 'Usuario';
 
-  // Configurar el botón de dashboard según rol
-  dashboardLink.addEventListener('click', () => {
+  dashboardLink?.addEventListener('click', () => {
     if (userCache.rol === 'admin') {
       window.location.href = viewsPath + 'dashboardAdmin.html';
     } else {
@@ -38,19 +41,17 @@ if (userCache) {
   });
 
 } else {
-  btnLogin.style.display = 'block';
-  dropdownMenuBtn.style.display = 'none';
-  dashboardLink.style.display = 'none';
-  btnLogout.style.display = 'none';
+  if (btnLogin) btnLogin.style.display = 'block';
+  if (dropdownMenuBtn) dropdownMenuBtn.style.display = 'none';
+  if (dashboardLink) dashboardLink.style.display = 'none';
+  if (btnLogout) btnLogout.style.display = 'none';
 }
 
-// Cierre de sesión
 btnLogout?.addEventListener('click', () => {
   limpiarSesion();
   window.location.href = rootPath + 'index.html';
 });
 
-// Redirige al login
 btnLogin?.addEventListener('click', () => {
   window.location.href = viewsPath + 'login.html';
 });
