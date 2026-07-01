@@ -1,6 +1,6 @@
 import {
     db
-} from '/js/firebaseConfig.js';
+} from './firebaseConfig.js';
 import {
     doc,
     getDoc,

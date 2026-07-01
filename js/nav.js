@@ -1,9 +1,14 @@
-import { limpiarSesion } from '/js/authHelpers.js';
+import { limpiarSesion } from './authHelpers.js';
 
 const btnLogin = document.getElementById('btnLogin');
 const dropdownMenuBtn = document.getElementById('dropdownMenuBtn');
 const dashboardLink = document.getElementById('dashboardLink');
 const btnLogout = document.getElementById('btnLogout');
+
+// Detectar ubicación para rutas relativas
+const isInViews = window.location.pathname.includes('/views/');
+const viewsPath = isInViews ? './' : './views/';
+const rootPath = isInViews ? '../' : './';
 
 const userCache = JSON.parse(localStorage.getItem('user'));
 
@@ -22,9 +27,9 @@ if (userCache) {
   // Configurar el botón de dashboard según rol
   dashboardLink.addEventListener('click', () => {
     if (userCache.rol === 'admin') {
-      window.location.href = '/views/dashboardAdmin.html';
+      window.location.href = viewsPath + 'dashboardAdmin.html';
     } else {
-      window.location.href = '/views/dashboardCliente.html';
+      window.location.href = viewsPath + 'dashboardCliente.html';
     }
   });
 
@@ -38,10 +43,10 @@ if (userCache) {
 // Cierre de sesión
 btnLogout?.addEventListener('click', () => {
   limpiarSesion();
-  window.location.href = '/index.html';
+  window.location.href = rootPath + 'index.html';
 });
 
 // Redirige al login
 btnLogin?.addEventListener('click', () => {
-  window.location.href = '/views/login.html';
+  window.location.href = viewsPath + 'login.html';
 });

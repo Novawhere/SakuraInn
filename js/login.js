@@ -1,4 +1,4 @@
-import { auth, db } from '/js/firebaseConfig.js';
+import { auth, db } from './firebaseConfig.js';
 import { 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -14,7 +14,7 @@ import { doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-
 import {
   registrarUsuarioEnBD,
   limpiarSesion
-} from '/js/authHelpers.js';
+} from './authHelpers.js';
 
 // Elementos
 const emailLogin = document.getElementById("loginEmail");
@@ -51,7 +51,7 @@ onAuthStateChanged(auth, async (user) => {
       guardarSesion(user);
       await registrarUsuarioEnBD(user, nameRegister?.value);
       alert(`Bienvenido, ${user.displayName || user.email}`);
-      window.location.href = "/index.html";
+      window.location.href = "../index.html";
     }
   } else {
     limpiarSesion();
@@ -91,7 +91,7 @@ btnRegister?.addEventListener("click", async (e) => {
       guardarSesion(cred.user);
       await registrarUsuarioEnBD(cred.user, nameRegister.value);
       alert("¡Registro exitoso!");
-      window.location.href = "/index.html";
+      window.location.href = "../index.html";
     } catch (error) {
       alert("Error al registrar: " + error.message);
     }
@@ -132,7 +132,7 @@ btnLogin?.addEventListener("click", async (e) => {
 
       alert(`Bienvenido, ${datosUsuario.nombre}`);
       sessionStorage.setItem('hasRedirected', 'true');
-      window.location.href = "/index.html";
+      window.location.href = "../index.html";
     } else {
       alert("No se encontró el usuario en la base de datos.");
     }
@@ -149,7 +149,7 @@ const loginConProveedor = async (provider) => {
     guardarSesion(result.user);
     await registrarUsuarioEnBD(result.user);
     alert("¡Bienvenido!");
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   } catch (error) {
     alert("Error de autenticación: " + error.message);
   }
@@ -165,7 +165,7 @@ btnLogout?.addEventListener("click", async () => {
     await signOut(auth);
     limpiarSesion();
     alert("Sesión cerrada");
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   } catch (error) {
     console.error("Error al cerrar sesión: ", error.message);
   }
