@@ -25,14 +25,15 @@ try {
 if (userCache) {
   console.log('Usuario desde cache:', userCache);
 
-  btnLogin?.style.display = 'none';
-  dropdownMenuBtn?.style.display = 'block';
-  dashboardLink?.style.display = 'block';
-  btnLogout?.style.display = 'block';
+  btnLogin?.style.setProperty('display', 'none');
+  dropdownMenuBtn?.style.setProperty('display', 'block');
+  dashboardLink?.style.setProperty('display', 'block');
+  btnLogout?.style.setProperty('display', 'block');
 
   if (dropdownMenuBtn) dropdownMenuBtn.textContent = userCache.nombre || 'Usuario';
 
-  dashboardLink?.addEventListener('click', () => {
+  dashboardLink?.addEventListener('click', (e) => {
+    e.preventDefault();
     if (userCache.rol === 'admin') {
       window.location.href = viewsPath + 'dashboardAdmin.html';
     } else {
@@ -41,17 +42,14 @@ if (userCache) {
   });
 
 } else {
-  if (btnLogin) btnLogin.style.display = 'block';
-  if (dropdownMenuBtn) dropdownMenuBtn.style.display = 'none';
-  if (dashboardLink) dashboardLink.style.display = 'none';
-  if (btnLogout) btnLogout.style.display = 'none';
+  btnLogin?.style.setProperty('display', 'inline-block');
+  dropdownMenuBtn?.style.setProperty('display', 'none');
+  dashboardLink?.style.setProperty('display', 'none');
+  btnLogout?.style.setProperty('display', 'none');
 }
 
-btnLogout?.addEventListener('click', () => {
+btnLogout?.addEventListener('click', (e) => {
+  e.preventDefault();
   limpiarSesion();
   window.location.href = rootPath + 'index.html';
-});
-
-btnLogin?.addEventListener('click', () => {
-  window.location.href = viewsPath + 'login.html';
 });
